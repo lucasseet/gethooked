@@ -11,7 +11,6 @@ const useStyles = makeStyles((theme) => ({
   root: {
     display: 'flex',
     backgroundColor: '#28362C',
-    position: 'fixed',
     left: 0,
     bottom: 0,
     width: '100%'
@@ -20,7 +19,6 @@ const useStyles = makeStyles((theme) => ({
   container: {
     marginTop: theme.spacing(2),
     marginBottom: theme.spacing(2),
-    marginLeft: "25px",
 
     
   },
@@ -37,7 +35,7 @@ const useStyles = makeStyles((theme) => ({
   },
   logo: {
     maxWidth: 120,
-    marginLeft: 20
+
   },
 
   logospace: {
@@ -54,11 +52,11 @@ export default function Footer() {
   return (
 
     <div className={classes.root}>
-    <Container xs={12} className={classes.container}>
+    <Container  className={classes.container}>
 
 
     <Grid container  style={{display: 'flex'}}>
-        <Grid item lg={8}className={classes.logospace}> 
+        <Grid item className={classes.logospace}> 
         <img
             src="https://res.cloudinary.com/dafoyfdwb/image/upload/v1630405540/logo-white_hjpel2.png"
             alt="logo"
