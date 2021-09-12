@@ -6,6 +6,7 @@ import "typeface-poppins"
 
 //PAGES//
 import Home from './components/Home'
+import Nearby from './components/Nearby';
 
 const theme = createTheme({
   typography: {
@@ -39,7 +40,9 @@ function App() {
     <Router>
     <div className="App">
     <Switch>
+    <Route path='/nearby-waters' component={Nearby} />
     <Route path='/' component={Home} />
+    
 
 
     </Switch>
