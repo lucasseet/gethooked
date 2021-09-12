@@ -1,8 +1,5 @@
-import { AppBar, Toolbar, IconButton } from "@material-ui/core";
+import { AppBar, Toolbar} from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
-import MenuIcon from "@material-ui/icons/Menu";
-import Typography from "@material-ui/core/Typography";
-import { Button } from "@material-ui/core";
 import { Link } from "react-router-dom";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItem from "@material-ui/core/ListItem";
@@ -13,19 +10,23 @@ import Buttons from './Button'
 
 const useStyles = makeStyles((theme) => ({
   offset: theme.mixins.toolbar,
+  
 
   root: {
     background: "#F5F6F7",
     display: 'flex',
     
+    
   },
   logo: {
-    maxWidth: 110,
+    maxWidth: 120,
   },
   space: {
     marginLeft: "25px",
     marginRight: "50px",
     display: 'flex',
+    marginTop: theme.spacing(1),
+    marginBottom: theme.spacing(1),
   },
 
   fontWeight: {
