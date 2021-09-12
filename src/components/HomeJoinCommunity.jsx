@@ -7,9 +7,7 @@ import { Grid, Typography } from '@material-ui/core';
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    height: '100vh',
-    minHeight: 500,
-    maxHeight: 1000,
+    paddingBottom:70
     },
 
 container:{
@@ -37,9 +35,7 @@ export default function HomeJoinCommunity() {
             <Grid item xs={6}>
             <img
           src="https://res.cloudinary.com/dafoyfdwb/image/upload/v1630405345/community2_ehnkcp.png"
-          alt="wonder"
           height='800'
-          
           
         />
 
