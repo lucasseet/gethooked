@@ -51,10 +51,10 @@ export default function FishRatings() {
               <Grid item xs={12} >
                   <div style={{display:'flex'}}>
                   <GradeRoundedIcon style={{color:'#F13A5D', fontSize: 30, marginRight:8}}/>
-                  <Typography variant="body1" style={{fontWeight:'600', marginBottom: '8px', paddingTop:6}}> 4 Ratings</Typography>
+                  <Typography variant="h6" style={{fontWeight:'600', marginBottom: '8px', paddingTop:2}}> 4 Ratings</Typography>
                     </div>
                     <Typography variant="body2" style={{ marginBottom: '20px'}}> 5 Logged Catches</Typography>
-                    <Typography variant="h6" style={{ fontWeight:'600'}}> 3 Most caught species</Typography>
+                    <Typography variant="h6" style={{ fontWeight:'600', marginBottom:'20px'}}> 3 Most caught species</Typography>
 
                     <div style={{display:'flex'}}>
                     <FishCard/>

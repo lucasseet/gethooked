@@ -11,12 +11,12 @@ const useStyles = makeStyles({
   root: {
     maxWidth: 200,
     marginRight:20,
-    marginBottom: 30,
+    marginBottom: 10,
     boxShadow: 'none'
 
   },
   media: {
-    height: 100,
+    height: 50,
     backgroundSize:'contain'
   },
   carousel:{
