@@ -9,12 +9,12 @@ import CloudIcon from '@material-ui/icons/Cloud';
 
 const useStyles = makeStyles({
   root: {
-    width:200,
-    marginBottom: 20,
+    width:"33.33%",
+    // marginBottom: 20,
     height: 160,
     backgroundColor:'#F5F6F7',
     borderRadius: 20,
-    marginRight:20,
+    // marginRight:20,
   },
   bullet: {
     display: 'inline-block',

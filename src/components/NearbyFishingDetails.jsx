@@ -85,7 +85,7 @@ export default function NearbyFishingDetails() {
               <FishRatings />
 
               {/* Weather */}
-              <div style={{ display: "flex", flexWrap: "wrap", width: "110%" }}>
+              <div style={{ display: "flex", flexWrap: "wrap", width: "100%" }}>
                 <FishSpecCard />
                 <FishSpecCard />
                 <FishSpecCard />
