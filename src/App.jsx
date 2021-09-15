@@ -9,6 +9,7 @@ import Home from './components/Home'
 import Nearby from './components/Nearby';
 import Login from './components/Login';
 import Register from './components/Register';
+import Community from './components/Community';
 
 const theme = createTheme({
   typography: {
@@ -44,6 +45,7 @@ function App() {
     <Switch>
     <Route path='/login' component={Login} />
     <Route path='/register' component={Register} />
+    <Route path='/community' component={Community} />
     <Route path='/nearby-waters' component={Nearby} />
     <Route path='/' component={Home} />
     
