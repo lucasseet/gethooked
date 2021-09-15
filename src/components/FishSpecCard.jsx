@@ -42,7 +42,7 @@ export default function FishSpecCard() {
 
   return (
       
-    <Card className={classes.root}>
+    <Card className={classes.root} gap={5}>
       <CardContent >
         <Typography className={classes.title} color="textSecondary" gutterBottom>
           Weather

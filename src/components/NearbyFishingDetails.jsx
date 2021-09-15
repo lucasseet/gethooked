@@ -11,19 +11,25 @@ import { Box } from "@material-ui/core";
 const useStyles = makeStyles((theme) => ({
   root: {
     marginBottom: 70,
+    display:'flex',
+    flexDirection:"row",
   },
 
   container: {
     // marginLeft:theme.spacing(6),
     // marginRight:theme.spacing(6)
     margin: "0, auto",
+    display:'flex',
+    flexDirection:"row",
   },
 
-  fishingtext: {
-    display: "flex",
-    alignItems: "center",
+  innercontainer6:{
+    display:'flex',
+    flexDirection:'column',
     textAlign: "left",
   },
+
+ 
 }));
 
 export default function NearbyFishingDetails() {
@@ -31,14 +37,18 @@ export default function NearbyFishingDetails() {
 
   return (
     <section className={classes.root}>
-      <Container className={classes.container}>
-        <Grid container>
+
+      
+
+        <Grid container className={classes.container}>
+
+          
           <Grid
             item
             xs={6}
-            className={classes.fishingtext}
-            style={{ marginTop: 150 }}
+            className={ classes.innercontainer6}
           >
+            <Box pt={16} pl={12}  pr={10} pb={4}>
             <div>
               <Typography
                 variant="h6"
@@ -94,15 +104,20 @@ export default function NearbyFishingDetails() {
                 <FishSpecCard />
               </div>
             </div>
-          </Grid>
-
-          <Grid item xs={6} style={{ marginTop: 150 }}>
-            <Box m={2}>
-              <ImageGallery  style={{marginRight:'20'}}/>
             </Box>
           </Grid>
+         
+
+                 
+          <Grid item xs={6} className={ classes.innercontainer6}>
+
+          <Box pt={17} pr={12} pl={6} pb={4} >  
+              <ImageGallery  />
+              </Box>
+          </Grid>
+          
         </Grid>
-      </Container>
+      
     </section>
   );
 }
