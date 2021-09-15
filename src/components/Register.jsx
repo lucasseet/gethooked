@@ -16,7 +16,7 @@ const useStyles = makeStyles((theme) => ({
   },
   image: {
     backgroundImage:
-      "url(https://res.cloudinary.com/dafoyfdwb/image/upload/v1631260909/Monty-FISHING-outdoor-0252_m31sjx.png)",
+      "url(https://res.cloudinary.com/dafoyfdwb/image/upload/v1631722758/samantha-deleo-v4oVgg5Vp5k-unsplash_avcxss.jpg)",
     backgroundRepeat: "no-repeat",
     backgroundColor:
       theme.palette.type === "light"
@@ -43,7 +43,7 @@ const useStyles = makeStyles((theme) => ({
 
 }));
 
-export default function Login() {
+export default function Register() {
   const classes = useStyles();
 
   return (
@@ -53,12 +53,12 @@ export default function Login() {
         <Box m={9}>
         <div className={classes.paper}>
             <img
-                src='https://res.cloudinary.com/dafoyfdwb/image/upload/v1630405540/logo-tagline_zdwk20.png'
-                width='330'
+                src='https://res.cloudinary.com/dafoyfdwb/image/upload/v1630405540/logo_wk16mb.png'
+                width='310'
                 style={{ marginBottom:65}}
                 />
-          <Typography style={{ fontWeight: "600", color:'#000', fontSize:'28px' }} variant="h4" align="left">
-            Login
+          <Typography style={{ fontWeight: "600", color:'#000', fontSize:'26px', marginBottom:"20px" }} variant="h3" align="left">
+          Register to GetHooked!
           </Typography>
        
           <form
@@ -68,6 +68,21 @@ export default function Login() {
               handleFormSubmission(e);
             }}
           >
+              <TextField
+              variant="outlined"
+              margin="normal"
+              required
+              fullWidth
+              id="name"
+              label="Name"
+              name="name"
+              autoComplete="name"
+              autoFocus
+              onChange={(e) => {
+                setEmailLogin(e.target.value);
+              }}
+            />
+
             <TextField
               variant="outlined"
               margin="normal"
@@ -94,6 +109,18 @@ export default function Login() {
               autoComplete="current-password"
               onChange={(e) => setPasswordLogin(e.target.value)}
             />
+            <TextField
+              variant="outlined"
+              margin="normal"
+              required
+              fullWidth
+              name="confirm-password"
+              label="confirm password"
+              type="confirm-password"
+              id="confirm-password"
+              autoComplete="confirm-password"
+              onChange={(e) => setPasswordLogin(e.target.value)}
+            />
             <Button
               type="submit"
               fullWidth
@@ -101,17 +128,17 @@ export default function Login() {
               color="secondary"
               className={classes.submit}
             >
-              Sign In
+              Register
             </Button>
             
               <Grid item style={{ textAlign:'center' }} >
-                New User?
+                Already on GetHooked?
                 <Link
-                  to="/register"
+                  to="/login"
                   style={{ textDecorationLine: "underline", color: "#F13A5D" }}
                   variant="body2"
                 >
-                  {" Sign Up!"}
+                  {" Log In"}
                 </Link>
               </Grid>
             

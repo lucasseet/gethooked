@@ -8,6 +8,7 @@ import "typeface-poppins"
 import Home from './components/Home'
 import Nearby from './components/Nearby';
 import Login from './components/Login';
+import Register from './components/Register';
 
 const theme = createTheme({
   typography: {
@@ -42,6 +43,7 @@ function App() {
     <div className="App">
     <Switch>
     <Route path='/login' component={Login} />
+    <Route path='/register' component={Register} />
     <Route path='/nearby-waters' component={Nearby} />
     <Route path='/' component={Home} />
     
