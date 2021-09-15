@@ -7,14 +7,16 @@ import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import CloudIcon from '@material-ui/icons/Cloud';
 
-const useStyles = makeStyles({
+const useStyles = makeStyles((theme) => ({
   root: {
-    width:"33.33%",
-    // marginBottom: 20,
+    width:"28.33%", //33.33%
+    marginBottom: 20,
     height: 160,
     backgroundColor:'#F5F6F7',
     borderRadius: 20,
-    // marginRight:20,
+    marginRight:20,
+
+    
   },
   bullet: {
     display: 'inline-block',
@@ -31,18 +33,16 @@ const useStyles = makeStyles({
   subtitle:{
       marginBottom:35,
   },
-  footnote:{
-    
-  }
-});
+
+}));
 
 export default function FishSpecCard() {
   const classes = useStyles();
   const bull = <span className={classes.bullet}>•</span>;
 
   return (
-      
-    <Card className={classes.root} gap={5}>
+    
+    <Card className={classes.root}>
       <CardContent >
         <Typography className={classes.title} color="textSecondary" gutterBottom>
           Weather
