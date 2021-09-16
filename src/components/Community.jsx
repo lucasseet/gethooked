@@ -16,7 +16,7 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     flexDirection: "col",
     justifyContent:"center",
-    height:"100vh",
+    
     backgroundColor:"#EAF0F2"
   },
 
@@ -24,6 +24,13 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     flexDirection: "column",
     // justifyContent
+  },
+
+  postCard: {
+    display: "flex",
+    justifyContent:"center",
+    flexDirection: "column",
+    alignItems:"center",
   },
 }));
 
@@ -33,30 +40,40 @@ export default function Community() {
   return (
     <div className={classes.root}>
       <Navbar />
+      
       <Grid container className={classes.container}>
-        <Grid item className={classes.textinner}>
-        <Box p={16}>
+      
+      
+      <Box p={16} pb={6}>
+        <Grid item xs={12}className={classes.textinner}>
+        
           <Typography
             variant="h4"
             component="h2"
             style={{ fontWeight: "600", marginBottom: "20px", color:"#28362C" }}
           >
-            {" "}
+            
             Latest Q&A from The Community
           </Typography>
           <Buttons color="secondary" variant="contained"children="Write A Post"/>
-        </Box>
-        </Grid>
+          
+          
+          <Box mt={6} className={classes.postCard} style={{textAlign:"left"}}>
+          <PostCard />
+          <PostCard />
+          <PostCard />
+          </Box>
 
-        <Grid container className={classes.textinner} style={{textAlign:"left"}}>
-        <PostCard/>
+        
         </Grid>
+        </Box>
 
         
         
       </Grid>
-      
       <Footer />
+     
+     
     </div>
   );
 }
