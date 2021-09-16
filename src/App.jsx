@@ -10,6 +10,7 @@ import Nearby from './components/Nearby';
 import Login from './components/Login';
 import Register from './components/Register';
 import Community from './components/Community';
+import CommunityCreate from './components/CommunityCreate';
 
 const theme = createTheme({
   typography: {
@@ -45,6 +46,7 @@ function App() {
     <Switch>
     <Route path='/login' component={Login} />
     <Route path='/register' component={Register} />
+    <Route path='/community/create' component={CommunityCreate} />
     <Route path='/community' component={Community} />
     <Route path='/nearby-waters' component={Nearby} />
     <Route path='/' component={Home} />
