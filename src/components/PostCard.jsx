@@ -15,6 +15,9 @@ import FavoriteIcon from '@material-ui/icons/Favorite';
 import ShareIcon from '@material-ui/icons/Share';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
+import LocationOnIcon from '@material-ui/icons/LocationOn';
+import { Box } from '@material-ui/core';
+import { Link } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -64,13 +67,39 @@ export default function PostCard() {
         }
         title="Shrimp and Chorizo Paella"
         subheader="September 14, 2016"
+        text="as"
+
+        
       />
+      
+
       <CardMedia
         className={classes.media}
         image="https://res.cloudinary.com/dafoyfdwb/image/upload/v1631801954/1-1200x800_nmbvm6.jpg"
         title="Paella dish"
       />
       <CardContent>
+      <Box mt={2}mb={2} display="flex">
+      <Link
+            to="/nearby-waters" style={{display:'flex'}}>
+      <LocationOnIcon style={{ color: '#F13A5D', marginRight:6}}/>
+      <Typography variant="body2" color="textSecondary" component="p" 
+        style={{fontWieght:"600", 
+        marginTop:4, 
+        color:'#F13A5D', 
+        textDecoration:'underline',
+        
+        }}>
+          Upper Seletar Road
+        </Typography>
+     
+      </Link>
+      </Box>
+
+      <Typography variant="body2" color="textSecondary" component="p">
+          This impressive paella is a perfect party dish and a fun meal to cook together with your
+          guests. Add 1 cup of frozen peas along with the mussels, if you like. 
+        </Typography>
         <Typography variant="body2" color="textSecondary" component="p">
           This impressive paella is a perfect party dish and a fun meal to cook together with your
           guests. Add 1 cup of frozen peas along with the mussels, if you like. 
