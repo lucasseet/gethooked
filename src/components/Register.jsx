@@ -2,13 +2,15 @@ import React from "react";
 import Button from "@material-ui/core/Button";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import TextField from "@material-ui/core/TextField";
-import Paper from "@material-ui/core/Paper";
 import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import { Box } from "@material-ui/core";
-
+import { toast } from 'material-react-toastify'
 import { Link } from "react-router-dom";
+import { useHistory } from 'react-router-dom'
+import axios from 'axios'
+
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -46,10 +48,60 @@ const useStyles = makeStyles((theme) => ({
 export default function Register() {
   const classes = useStyles();
 
+  // use useState hooks
+  const [name, setName] = React.useState('')
+  const [email, setEmail] = React.useState('')
+  const [password, setPassword] = React.useState('')
+  const [confirmPassword, setConfirmPassword] = React.useState('')
+  let [fetchedData, setFetchedData] = React.useState({})
+
+
+
+  // let [fetchedData, setFetchedData] = React.useState({})
+  let history = useHistory()
+  const notify = (message) => toast.dark(message)
+
+   // MAKING POST REQUEST TO REGISTER //
+
+  let fetchData = async () => {
+    try {
+      fetchedData = await axios({
+        method: 'post',
+        url: 'http://localhost:4000/users/register',
+        data: {
+          name: name,
+          email: email,
+          password: password,
+          confirmpassword: confirmPassword,
+        },
+      })
+    } catch (err) {
+      console.log(err)
+      return err
+    }
+    
+    setFetchedData(fetchedData)
+    return
+  }
+
+  // submit form function
+  const handleFormSubmission = async (e) => {
+    e.preventDefault()
+    await fetchData()
+    if (fetchedData.status !== 201) {
+      return notify('Please check your form again.')
+    }  notify('Registration successful')
+
+    history.push(`/login`)
+
+    
+  }
+
+
   return (
     <Grid container component="main" className={classes.root}>
       <CssBaseline />
-      <Grid item xs={12} sm={8} md={5} elevation={6} square style={{marginTop:0}}>
+      <Grid item xs={12} sm={8} md={5} elevation={6} style={{marginTop:0}}>
         <Box m={9}>
         <div className={classes.paper}>
             <img
@@ -79,7 +131,7 @@ export default function Register() {
               autoComplete="name"
               autoFocus
               onChange={(e) => {
-                setEmailLogin(e.target.value);
+                setName(e.target.value);
               }}
             />
 
@@ -94,7 +146,7 @@ export default function Register() {
               autoComplete="email"
               autoFocus
               onChange={(e) => {
-                setEmailLogin(e.target.value);
+                setEmail(e.target.value);
               }}
             />
             <TextField
@@ -106,20 +158,19 @@ export default function Register() {
               label="Password"
               type="password"
               id="password"
-              autoComplete="current-password"
-              onChange={(e) => setPasswordLogin(e.target.value)}
+              onChange={(e) => setPassword(e.target.value)}
             />
             <TextField
               variant="outlined"
               margin="normal"
               required
               fullWidth
-              name="confirm-password"
-              label="confirm password"
-              type="confirm-password"
-              id="confirm-password"
-              autoComplete="confirm-password"
-              onChange={(e) => setPasswordLogin(e.target.value)}
+              name="confirmpassword"
+              label="Confirm Password"
+              type="password"
+              id="confirmpassword"
+              autoComplete="confirmpassword"
+              onChange={(e) => setConfirmPassword(e.target.value)}
             />
             <Button
               type="submit"
