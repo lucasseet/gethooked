@@ -2,7 +2,12 @@ import React from 'react'
 import './App.css';
 import { ThemeProvider, createTheme } from '@material-ui/core/styles'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
+import { withCookies, Cookies } from 'react-cookie'
 import "typeface-poppins"
+import { CookiesProvider } from 'react-cookie'
+import { ToastContainer } from 'material-react-toastify'
+import 'material-react-toastify/dist/ReactToastify.css'
+
 
 //PAGES//
 import Home from './components/Home'
@@ -39,7 +44,21 @@ const theme = createTheme({
 })
 
 function App() {
+
   return (
+    <CookiesProvider>
+      <ToastContainer
+          position='bottom-right'
+          autoClose={5000}
+          hideProgressBar={false}
+          newestOnTop
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable={false}
+          pauseOnHover
+        />
+    
     <ThemeProvider theme={theme}>
     <Router>
     <div className="App">
@@ -57,7 +76,9 @@ function App() {
     </div>
     </Router>
     </ThemeProvider>
+    </CookiesProvider>
+
   );
 }
 
-export default App;
+export default withCookies(App);

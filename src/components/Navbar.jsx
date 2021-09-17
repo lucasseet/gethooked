@@ -21,7 +21,7 @@ const useStyles = makeStyles((theme) => ({
     
   },
   logo: {
-    maxWidth: 120,
+    maxWidth: 160,
   },
   space: {
     marginLeft: "25px",
@@ -50,7 +50,7 @@ export default function Navbar() {
             src="https://res.cloudinary.com/dafoyfdwb/image/upload/v1630405540/logo_wk16mb.png"
             alt="logo"
             className={classes.logo}
-            style={{ marginRight: 100 }}
+            style={{ marginRight: 40 }}
           />
           
           <Link
