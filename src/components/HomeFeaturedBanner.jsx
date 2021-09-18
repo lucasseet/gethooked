@@ -57,7 +57,7 @@ export default function HomeFeaturedBanner() {
             <Grid item xs={6} className={classes.text}>
             <div>
                 <Typography variant="h2" component="h2" style={{fontWeight:'600', marginBottom: '20px', textAlign:'left'}}> Fish smarter, today</Typography>
-                <Typography variant="p" component="p" style={{fontWeight:'400', lineHeight:'1.6', marginBottom: '20px', textAlign:'left'}}> 
+                <Typography variant="body2" component="p" style={{fontWeight:'400', lineHeight:'1.6', marginBottom: '20px', textAlign:'left'}}> 
                 Catch more fish with GetHooked - the world’s most popular fishing app. GetHooked provides you with the tools and skills you need to perform better every time you hit the water, so that you can make bigger and better catches.                </Typography>
                 
                 <div style={{display:'flex', justifyContent:'flex-start'}}>

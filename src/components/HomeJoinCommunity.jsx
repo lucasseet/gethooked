@@ -11,7 +11,8 @@ const useStyles = makeStyles((theme) => ({
     },
 
 container:{
-    maxWidth:1900
+    maxWidth:1900,
+    backgroundColor: "white",
 },
 
 community:{
@@ -27,6 +28,7 @@ community:{
 
 export default function HomeJoinCommunity() {
     const classes = useStyles();
+    
 
   return (
     <section className={classes.root}>
@@ -44,7 +46,7 @@ export default function HomeJoinCommunity() {
             <Grid item xs={6} className={classes.community}>
                 <div>
                 <Typography variant="h4" component="h2" style={{fontWeight:'600', marginBottom: '20px'}}> Join Our Community</Typography>
-                <Typography variant="p" component="p" style={{fontWeight:'400', lineHeight:'1.6', marginBottom: '20px'}}> 
+                <Typography variant="body1"  style={{fontWeight:'400', lineHeight:'1.6', marginBottom: '20px'}}> 
                 With over 13 million anglers from all over the world, no other fishing app contains as much detailed catch data as GetHooked. You can find catches, make connections and learn different fishing techniques everywhere from your local pond to the middle of the farthest ocean.
                 </Typography>
                 

@@ -9,12 +9,14 @@ import {Typography } from '@material-ui/core';
 
 const useStyles = makeStyles({
   root: {
-    maxWidth: 345,
+    width: 345,
     marginRight:20,
-    marginBottom: 30
+    marginBottom: 30,
+    
   },
   media: {
     height: 200,
+    
   },
   carousel:{
     display:'flex',
@@ -22,7 +24,7 @@ const useStyles = makeStyles({
 }
 });
 
-export default function MediaCard() {
+export default function MediaCard(props) {
   const classes = useStyles();
 
   return (
@@ -31,13 +33,13 @@ export default function MediaCard() {
       <CardActionArea className={classes.root}>
         <CardMedia
           className={classes.media}
-          image="https://res.cloudinary.com/dafoyfdwb/image/upload/v1630405539/GetHooked-09_sulw5e.png"
+          image={props.image}
         />
         <CardContent>
           <Typography gutterBottom variant="h6" component="h2">
-          Tuas Explosive Anchorage
+          {props.location}
           </Typography>
-          <Typography variant="body2" color="textSecondary" component="p">
+          <Typography variant="body2" color="textSecondary" >
           12 Logged Catches
           </Typography>
         </CardContent>
