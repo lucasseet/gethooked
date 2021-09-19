@@ -57,10 +57,10 @@ export default function CommunityCreate() {
   const [cookies] = useCookies(['auth_token'])
   let history = useHistory()
 
-  //image upload
-  const [fileInputState, setFileInputState] = useState('');
-  const [previewSource, setPreviewSource] = useState('');
-  const [selectedFile, setSelectedFile] = useState();
+  // //image upload
+  // const [fileInputState, setFileInputState] = useState('');
+  // const [previewSource, setPreviewSource] = useState('');
+  // const [selectedFile, setSelectedFile] = useState();
 
 
 
@@ -94,34 +94,34 @@ export default function CommunityCreate() {
     }
   }
 
-  const handleFileInputChange = (e) => {
-    const file = e.target.files[0];
-    previewFile(file);
-    setSelectedFile(file);
-    setFileInputState(e.target.value);
-};
+//   const handleFileInputChange = (e) => {
+//     const file = e.target.files[0];
+//     previewFile(file);
+//     setSelectedFile(file);
+//     setFileInputState(e.target.value);
+// };
 
-const previewFile = (file) => {
-  const reader = new FileReader();
-  reader.readAsDataURL(file);
-  reader.onloadend = () => {
-      setPreviewSource(reader.result);
-  };
-};
+// const previewFile = (file) => {
+//   const reader = new FileReader();
+//   reader.readAsDataURL(file);
+//   reader.onloadend = () => {
+//       setPreviewSource(reader.result);
+//   };
+// };
 
-const handleSubmitFile = (e) => {
-  e.preventDefault();
-  if (!selectedFile) return;
-  const reader = new FileReader();
-  reader.readAsDataURL(selectedFile);
-  reader.onloadend = () => {
-      uploadImage(reader.result);
-  };
-  reader.onerror = () => {
-      console.error('AHHHHHHHH!!');
-      setErrMsg('something went wrong!');
-  };
-};
+// const handleSubmitFile = (e) => {
+//   e.preventDefault();
+//   if (!selectedFile) return;
+//   const reader = new FileReader();
+//   reader.readAsDataURL(selectedFile);
+//   reader.onloadend = () => {
+//       uploadImage(reader.result);
+//   };
+//   reader.onerror = () => {
+//       console.error('AHHHHHHHH!!');
+//       setErrMsg('something went wrong!');
+//   };
+// };
 
 
 
@@ -171,7 +171,7 @@ const handleSubmitFile = (e) => {
                   alignItems: "center",
                   width: 500,
                 }}
-                onSubmit={handleSubmitFile} 
+                // onSubmit={handleSubmitFile} 
                 
               >
                 <Box mb={2} style={{ textAlign: "left" }}>
@@ -186,13 +186,13 @@ const handleSubmitFile = (e) => {
                   >
                     Upload your catch!
                   </Typography>
-                  {previewSource && (
+                  {/* {previewSource && (
                 <img
                     src={previewSource}
                     alt="chosen"
                     style={{ height: '100px', display:'flex', justifyContent:'center' }}
                 />
-            )}
+            )} */}
                 </Box>
 
                 <Box mb={2}>
@@ -200,8 +200,8 @@ const handleSubmitFile = (e) => {
                     <input 
                       type="file" 
                       style={{ marginLeft: 60 }}
-                      onChange={handleFileInputChange}
-                      value={fileInputState}
+                      // onChange={handleFileInputChange}
+                      // value={fileInputState}
                       
                       />
                   </div>
