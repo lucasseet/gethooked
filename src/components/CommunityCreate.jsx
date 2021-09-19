@@ -125,9 +125,9 @@ export default function CommunityCreate() {
 
 
 
-  useEffect(() => {
-    createPost
-  }, [])
+  // useEffect(() => {
+  //   createPost
+  // }, [])
 
 
   // submit form function
