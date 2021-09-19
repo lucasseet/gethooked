@@ -67,7 +67,7 @@ function App() {
     <Route path='/register' component={Register} />
     <Route path='/community/create' component={CommunityCreate} />
     <Route path='/community' component={Community} />
-    <Route path='/nearby-waters' component={Nearby} />
+    <Route path='/nearby-waters/:id' component={Nearby} />
     <Route path='/' component={Home} />
     
 

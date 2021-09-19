@@ -8,6 +8,7 @@ import Container from '@material-ui/core/Container';
 import { Grid, Typography } from '@material-ui/core';
 import axios from 'axios'
 import _ from 'lodash'
+import { Link } from 'react-router-dom';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -45,7 +46,7 @@ export default function HomeFishingSpot() {
 
 
     const getAllFishingSpot = async () => {
-      const url = 'http://localhost:4000/fishing-spots'
+      const url = 'http://localhost:4000/fishing-spots/'
   
       await axios
         .get(`${url}`, {
@@ -54,7 +55,7 @@ export default function HomeFishingSpot() {
         .then((response) => {
           const allData = response.data
           setAllFishingSpotData(allData)
-          console.log(allData)
+          // console.log(allData)
         })
         .catch((error) => {
           return error
@@ -70,7 +71,7 @@ export default function HomeFishingSpot() {
         })
         .then((response) => {
           const allData = response.data
-          setAllFishingSpotTotalPages(allData.meta.totalPages)
+          setAllFishingSpotTotalPages(allData.meta.totalPages.parseInt())
           
         })
         .catch((error) => {
@@ -99,26 +100,34 @@ export default function HomeFishingSpot() {
         <Grid item xs={12} className={classes.carousel}>
           {allFishingSpotData.map((item, pos)=>{
             return(
-            <MediaCard
+              <Link
+              key={pos}
+              style={{ textDecoration: 'none'}}
+              to={{
+                pathname: `/nearby-waters/${item.id}`,
+                state: item.id
+              }}
+            >
+              <MediaCard 
               key={pos}
               location={item.location}
               image={item.image}
+              id={item.id}
               description={item.description}
             />
+            </Link>
+
+            
             )
 
           })
     }
-        {/* // <MediaCard/>
-        // <MediaCard/>
-        // <MediaCard/>
-        // <MediaCard/> */}
         
         </Grid>
 
         <Grid item xs={12}>
         <Pagination 
-        count={allFishingSpotTotalPages}
+        count={parseInt(allFishingSpotTotalPages)}
         color="primary" 
         onChange={(e) => {
           handlePageChange(e)
