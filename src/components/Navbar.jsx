@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItem from "@material-ui/core/ListItem";
 import RoomIcon from "@material-ui/icons/Room";
+import HomeIcon from "@material-ui/icons/Home";
 import ListItemText from "@material-ui/core/ListItemText";
 import GroupIcon from '@material-ui/icons/Group';
 import Buttons from './Button'
@@ -52,6 +53,21 @@ export default function Navbar() {
             className={classes.logo}
             style={{ marginRight: 40 }}
           />
+
+          <Link
+            to="/"
+            style={{ textDecoration: "none", color: "#28362C", display:"flex" }}
+          >
+            <ListItem button>
+              <ListItemIcon style={{ color: "#28362C", minWidth: 35 }}>
+                <HomeIcon style={{fontSize:27}} />
+              </ListItemIcon>
+              <ListItemText
+                primary="Home"
+                style={{ fontSize: 70 }}
+              />
+            </ListItem>
+          </Link>
           
           <Link
             to="/community"
