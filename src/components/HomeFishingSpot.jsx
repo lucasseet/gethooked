@@ -43,6 +43,9 @@ export default function HomeFishingSpot() {
     const [allFishingSpotData, setAllFishingSpotData] = React.useState([])
     const [currentPage, setCurrentPage] = React.useState(0)
     const [allFishingSpotTotalPages, setAllFishingSpotTotalPages] = React.useState([])
+    const [nearbyWaters, setNearbyWaters] = React.useState([])
+    const [page, setPage] = React.useState(1)
+    const [totalPages, setTotalPages] = React.useState(0)
 
 
     const getAllFishingSpot = async () => {
@@ -68,10 +71,14 @@ export default function HomeFishingSpot() {
       await axios
         .get(`${url}`, {
           headers: cookies,
+          params: {page}
+
         })
         .then((response) => {
           const allData = response.data
-          setAllFishingSpotTotalPages(allData.meta.totalPages.parseInt())
+          console.log(allData)
+          setNearbyWaters(allData.items)
+          setTotalPages(allData.meta.totalPages)
           
         })
         .catch((error) => {
@@ -80,14 +87,23 @@ export default function HomeFishingSpot() {
     }
 
     //  To handle page change to show array of items
-    const handlePageChange = (e) => {
-      setCurrentPage(e.target.innerText - 1)
+    const handlePageChange = (e, pageNo) => {
+      console.log(pageNo)
+      setPage(pageNo)
     }
 
     React.useEffect(() => {
       getAllFishingSpot()
-      getAllFishingSpotPage()
+
     }, [])
+
+    React.useEffect(() => {
+      if(page)
+      console.log(page)
+      getAllFishingSpotPage()
+
+    }, [page])
+    
 
   return (
     <section className={classes.root}>
@@ -98,7 +114,7 @@ export default function HomeFishingSpot() {
         </Grid>
 
         <Grid item xs={12} className={classes.carousel}>
-          {allFishingSpotData.map((item, pos)=>{
+          {nearbyWaters.map((item, pos)=>{
             return(
               <Link
               key={pos}
@@ -127,10 +143,11 @@ export default function HomeFishingSpot() {
 
         <Grid item xs={12}>
         <Pagination 
-        count={parseInt(allFishingSpotTotalPages)}
+        count={totalPages}
+        defaultPage
         color="primary" 
-        onChange={(e) => {
-          handlePageChange(e)
+        onChange={(e, pageNo) => {
+          handlePageChange(e, pageNo)
         }}
         style={{display: 'flex',justifyContent:'center'}}/>
         </Grid>

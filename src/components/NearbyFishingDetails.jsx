@@ -86,9 +86,9 @@ export default function NearbyFishingDetails(props) {
     // let fishCountArray = idFishingSpotData.fishCount[0].count
     // console.log(parseInt(fishCountArray))
 
-    // let fishCountArray = idFishingSpotData.fishCount
+    let fishCountArray = idFishingSpotData.fishCount
 
-    // console.log(fishCountArray)
+    console.log(fishCountArray)
     // for(let i=0; i<fishCountArray.length; i++){
     //   console.log(fishCountArray[i])
     // }
