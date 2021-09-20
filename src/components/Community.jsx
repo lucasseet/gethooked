@@ -6,6 +6,10 @@ import { Grid, Typography,Box } from "@material-ui/core";
 import Buttons from "./Button";
 import PostCard from "./PostCard"
 import { Link } from "react-router-dom";
+import axios from 'axios'
+import { useCookies } from 'react-cookie'
+
+
 
 const useStyles = makeStyles((theme) => ({
 //   root: {
@@ -37,6 +41,32 @@ const useStyles = makeStyles((theme) => ({
 
 export default function Community() {
   const classes = useStyles();
+  const [cookies] = useCookies(['auth_token'])
+
+
+  // use useState hooks
+  const [allpost, setAllPost] = React.useState([])
+
+  const getAllPost = async () => {
+    const url = 'http://localhost:4000/community'
+
+    await axios
+      .get(`${url}`, {
+        headers: cookies,
+      })
+      .then((response) => {
+        const allData = response.data
+        setAllPost(allData)
+      })
+      .catch((error) => {
+        return error
+      })
+  }
+
+  React.useEffect(() => {
+    getAllPost()
+  }, [])
+
 
   return (
     <div className={classes.root}>
@@ -66,9 +96,18 @@ export default function Community() {
           </Link>
           
           <Box mt={6} className={classes.postCard} style={{textAlign:"left"}}>
+          {allpost.map((item => {
+            return(
+            <PostCard 
+            image={item.image} 
+            location={item.location}
+            description={item.description}
+            species={item.species}
+            />)
+          }))}
+          {/* <PostCard />
           <PostCard />
-          <PostCard />
-          <PostCard />
+          <PostCard /> */}
           </Box>
 
         

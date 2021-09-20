@@ -44,13 +44,10 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function PostCard() {
+export default function PostCard(props) {
   const classes = useStyles();
-  const [expanded, setExpanded] = React.useState(false);
 
-  const handleExpandClick = () => {
-    setExpanded(!expanded);
-  };
+
 
   return (
     <Card className={classes.root}>
@@ -65,9 +62,8 @@ export default function PostCard() {
             <MoreVertIcon />
           </IconButton>
         }
-        title="Shrimp and Chorizo Paella"
+        title={props.species}
         subheader="September 25, 2021"
-        text="as"
 
         
       />
@@ -75,7 +71,7 @@ export default function PostCard() {
 
       <CardMedia
         className={classes.media}
-        image="https://res.cloudinary.com/dafoyfdwb/image/upload/v1631801954/1-1200x800_nmbvm6.jpg"
+        image={props.image}
         title="Paella dish"
       />
       <CardContent>
@@ -90,20 +86,20 @@ export default function PostCard() {
         textDecoration:'underline',
         
         }}>
-          Upper Seletar Road
+          {props.location}
+          {/* Upper Seletar Road */}
         </Typography>
      
       </Link>
       </Box>
 
       <Typography variant="body2" color="textSecondary" component="p">
+      {props.description}
+        </Typography>
+       <Typography variant="body2" color="textSecondary" component="p">
           This impressive paella is a perfect party dish and a fun meal to cook together with your
           guests. Add 1 cup of frozen peas along with the mussels, if you like. 
-        </Typography>
-        <Typography variant="body2" color="textSecondary" component="p">
-          This impressive paella is a perfect party dish and a fun meal to cook together with your
-          guests. Add 1 cup of frozen peas along with the mussels, if you like. 
-        </Typography>
+        </Typography> 
       </CardContent>
 
     </Card>
