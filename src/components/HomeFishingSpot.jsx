@@ -76,7 +76,7 @@ export default function HomeFishingSpot() {
         })
         .then((response) => {
           const allData = response.data
-          console.log(allData)
+          // console.log(allData)
           setNearbyWaters(allData.items)
           setTotalPages(allData.meta.totalPages)
           

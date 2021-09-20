@@ -47,11 +47,12 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function CommunityCreate() {
+export default function CommunityCreate(props) {
   const classes = useStyles();
 
   // use useState hooks
-  const [location, setLocation] = React.useState('')
+  // const [location, setLocation] = React.useState('')
+  const [fishingspotid, setFishingspotId] = React.useState('')
   const [fish, setFish] = React.useState('')
   const [description, setDescription] = React.useState('')
   const [cookies] = useCookies(['auth_token'])
@@ -70,15 +71,16 @@ export default function CommunityCreate() {
 
 
   // Create TO DO //
-  let createPost = async () => {
+  let createPost = async (e) => {
     try {
       await axios.post(
         'http://localhost:4000/community/create',
         {
           image:'https://res.cloudinary.com/dafoyfdwb/image/upload/v1631801954/1-1200x800_nmbvm6.jpg',
-          location: location,
-          fish: fish,
+          fishingspotId: fishingspotid,
+          species: fish,
           description: description,
+          location: "Upper seletar Reservior"
         },
         {
           headers: cookies,
@@ -86,48 +88,18 @@ export default function CommunityCreate() {
       )
       console.log('1')
       history.push('/community')
-      console.log('5')
+
       return
     } catch (err) {
-      console.log('2')
+
       return notify('Please check your form again.')
     }
   }
 
-//   const handleFileInputChange = (e) => {
-//     const file = e.target.files[0];
-//     previewFile(file);
-//     setSelectedFile(file);
-//     setFileInputState(e.target.value);
-// };
 
-// const previewFile = (file) => {
-//   const reader = new FileReader();
-//   reader.readAsDataURL(file);
-//   reader.onloadend = () => {
-//       setPreviewSource(reader.result);
-//   };
-// };
-
-// const handleSubmitFile = (e) => {
-//   e.preventDefault();
-//   if (!selectedFile) return;
-//   const reader = new FileReader();
-//   reader.readAsDataURL(selectedFile);
-//   reader.onloadend = () => {
-//       uploadImage(reader.result);
-//   };
-//   reader.onerror = () => {
-//       console.error('AHHHHHHHH!!');
-//       setErrMsg('something went wrong!');
-//   };
-// };
-
-
-
-  // useEffect(() => {
-  //   createPost
-  // }, [])
+  useEffect(() => {
+    createPost
+  }, [])
 
 
   // submit form function
@@ -239,11 +211,11 @@ export default function CommunityCreate() {
                   textalign="left"
                 >
                   <InputLabel>
-                    Location
+                  Fishing Spot
                   </InputLabel>
                   <Select
-                    value={location}
-                    onChange={(e) => setLocation(e.target.value)}
+                    value={fishingspotid}
+                    onChange={(e) => setFishingspotId(e.target.value)}
                   >
                     <MenuItem value="8">Lower pierce reservoir</MenuItem>
                     <MenuItem value="9">Marina reservoir</MenuItem>
@@ -255,6 +227,31 @@ export default function CommunityCreate() {
                     <MenuItem value="15">Punggol Point Jetty</MenuItem>
                   </Select>
                 </FormControl>
+
+                {/* <FormControl
+                  variant="outlined"
+                  style={{ width: "100%" }}
+                  margin="normal"
+                  fullWidth
+                  textalign="left"
+                >
+                <InputLabel>
+                    Location
+                  </InputLabel>
+                  <Select
+                    value={location}
+                    onChange={(e) => setLocation(e.target.value)}
+                  >
+                    <MenuItem value="Lower Pierce Reservoir">Lower Pierce Reservoir</MenuItem>
+                    <MenuItem value="Marina Reservoir">Marina Reservoir</MenuItem>
+                    <MenuItem value="Changi Beach Park">Changi Beach Park</MenuItem>
+                    <MenuItem value="Jurong Lake">Jurong Lake</MenuItem>
+                    <MenuItem value="Bedok Reservoir">Bedok Reservoir</MenuItem>
+                    <MenuItem value="Pasir Ris Town Park Fishing Pond">Pasir Ris Town Park Fishing Pond</MenuItem>
+                    <MenuItem value="Serangoon Reservoir">Serangoon Reservoir</MenuItem>
+                    <MenuItem value="Punggol Point Jetty">Punggol Point Jetty</MenuItem>
+                  </Select>
+                </FormControl> */}
 
                 <FormControl
                   variant="outlined"
@@ -298,7 +295,11 @@ export default function CommunityCreate() {
                 color="secondary"
                 variant="contained"
                 children="Write A Post"
-                onClick={createPost}
+                onClick={()=> {
+                  console.log("creating Post") 
+                  createPost()
+                }
+                }
                 // style={{ marginBottom: 20, marginTop: 20 }}
               />
               </div>

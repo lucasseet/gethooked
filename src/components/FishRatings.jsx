@@ -41,7 +41,8 @@ const itemData = [
 ]
 
 
-export default function FishRatings() {
+export default function FishRatings(props) {
+    console.log(props.fishCountArray)
 
 
     return (
@@ -56,7 +57,13 @@ export default function FishRatings() {
                     <Typography variant="body2" style={{ marginBottom: '20px'}}> 5 Logged Catches</Typography>
                     <Typography variant="h6" style={{ fontWeight:'600', marginBottom:'20px'}}> 3 Most caught species</Typography>
 
-                    <div style={{display:'flex'}}>
+                    {/* <div style={{display:'flex'}}>
+                        { props.fishCountArray === 0
+                        ? (<h6>There are no items at the moment.</h6>)
+                        : (props.fishCountArray.map((item, pos) => {
+                            return(<FishCard/>)
+                        }))}) */}
+                         <div style={{display:'flex'}}>
                     <FishCard/>
                     <FishCard/>
                     <FishCard/>

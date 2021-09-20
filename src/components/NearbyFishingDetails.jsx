@@ -74,48 +74,13 @@ export default function NearbyFishingDetails(props) {
   
     
 
-    // function sumOfFishCount(fishCountArray) {
-    //   const total = fishCountArray.reduce(function (prev, cur) {
-    //     return prev.count + cur.count
-    //   }, 0)
-    //   return parseInt(total)
-    // }
-    // console.log(sumOfFishCount(idFishingSpotData.fishCount))
-    // console.log(sumOfFishCount(idFishingSpotData.fishCount))
-
-    // let fishCountArray = idFishingSpotData.fishCount[0].count
-    // console.log(parseInt(fishCountArray))
-
     let fishCountArray = idFishingSpotData.fishCount
 
     console.log(fishCountArray)
-    // for(let i=0; i<fishCountArray.length; i++){
-    //   console.log(fishCountArray[i])
-    // }
-
-    // function sumOfFishCount(fishArray) {
-    //   console.log(fishArray.filter((item) => item.count))
-    //   // const total = fishArray.reduce(function (prev, cur) {
-    //   //   return prev + cur
-    //   // }, 0)
-    //   // return total
-    // }
-
-    // console.log(sumOfFishCount(fishCountArray))
- 
-  // let result = fishCountArray.map(a => a.count);
-  // console.log(result)
 
 
  
 
-    // function sumOfBrideTeamPax() {
-    //   const teamArray = filterData.filter((item) => item.role === 'bride')
-    //   const total = teamArray.reduce(function (prev, cur) {
-    //     return prev + cur.pax
-    //   }, 0)
-    //   return total
-    // }
 
 
   return (
@@ -175,7 +140,7 @@ export default function NearbyFishingDetails(props) {
                 </a>
                 .
               </Typography>
-              <FishRatings fishCount={2}/>
+              <FishRatings fishCountArray={fishCountArray}/>
 
               {/* Weather */}
               <div style={{ display: "flex", flexWrap: "wrap", width: "100%" }}>

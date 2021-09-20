@@ -5,6 +5,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import { Grid, Typography,Box } from "@material-ui/core";
 import Buttons from "./Button";
 import PostCard from "./PostCard"
+import { Link } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
 //   root: {
@@ -55,8 +56,14 @@ export default function Community() {
             
             Latest Q&A from The Community
           </Typography>
+          <Link
+              style={{ textDecoration: 'none'}}
+              to={{
+                pathname: `/community/create`,
+              }}
+            >
           <Buttons color="secondary" variant="contained"children="Write A Post"/>
-          
+          </Link>
           
           <Box mt={6} className={classes.postCard} style={{textAlign:"left"}}>
           <PostCard />
