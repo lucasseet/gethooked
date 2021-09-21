@@ -6,6 +6,9 @@ import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import CloudIcon from '@material-ui/icons/Cloud';
+// import WavesIcon from '@material-ui/icons/Waves';
+// import GrainIcon from '@material-ui/icons/Grain';
+
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -36,7 +39,7 @@ const useStyles = makeStyles((theme) => ({
 
 }));
 
-export default function FishSpecCard() {
+export default function FishSpecCard(props) {
   const classes = useStyles();
   const bull = <span className={classes.bullet}>•</span>;
 
@@ -45,19 +48,19 @@ export default function FishSpecCard() {
     <Card className={classes.root}>
       <CardContent >
         <Typography className={classes.title} color="textSecondary" gutterBottom>
-          Weather
+          {props.subtitle}
         </Typography>
 
         <div style={{display:'flex'}}>
         <CloudIcon style={{marginRight:'10', marginTop:'2'}}/>
         
         <Typography className={classes.subtitle}  variant="h6" component="h2">
-          26 Degree
+        {props.title}
         </Typography>
         </div>
         
         <Typography  className={classes.footnote}  variant="body2" component="p">
-          Feels like 26 Degree
+        {props.tagline}
         </Typography>
       </CardContent>
 

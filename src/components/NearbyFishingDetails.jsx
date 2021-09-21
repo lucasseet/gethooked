@@ -158,12 +158,12 @@ export default function NearbyFishingDetails(props) {
 
               {/* Weather */}
               <div style={{ display: "flex", flexWrap: "wrap", width: "100%" }}>
-                <FishSpecCard />
-                <FishSpecCard />
-                <FishSpecCard />
-                <FishSpecCard />
-                <FishSpecCard />
-                <FishSpecCard />
+                <FishSpecCard subtitle={"Weather"} title={"26 Degree"} tagline={"Feels like 26 Degree"}/>
+                <FishSpecCard subtitle={"Wind"} title={"1.5 speed"} tagline={"Wind gust 2/3s"}/>
+                <FishSpecCard subtitle={"Top Bait"} title={"Mud Worms"} tagline={"Live Bait"}/>
+                <FishSpecCard subtitle={"Rain"} title={"2/3hr"} tagline={"Heavy downpour"}/>
+                <FishSpecCard subtitle={"Peak Bite Time"} title={"7-8pm"} tagline={"Try at 9pm"}/>
+                <FishSpecCard subtitle={"Waves"} title={"1700 km/h "} tagline={"Extremely high"}/>
               </div>
             </div>
           </Box>
