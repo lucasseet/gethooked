@@ -57,16 +57,12 @@ export default function FishRatings(props) {
                     <Typography variant="body2" style={{ marginBottom: '20px'}}> 5 Logged Catches</Typography>
                     <Typography variant="h6" style={{ fontWeight:'600', marginBottom:'20px'}}> 3 Most caught species</Typography>
 
-                    {/* <div style={{display:'flex'}}>
-                        { props.fishCountArray === 0
+                    <div style={{display:'flex'}}>
+                        { props.fishCountArray === undefined
                         ? (<h6>There are no items at the moment.</h6>)
-                        : (props.fishCountArray.map((item, pos) => {
-                            return(<FishCard/>)
-                        }))}) */}
-                         <div style={{display:'flex'}}>
-                    <FishCard/>
-                    <FishCard/>
-                    <FishCard/>
+                        : (props.fishCountArray.slice(0,3).map((item, pos) => {
+                            return(<FishCard fish={item.species}/>)
+                        }))}
                     </div>
 
 
