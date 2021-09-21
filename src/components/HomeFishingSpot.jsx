@@ -94,6 +94,7 @@ export default function HomeFishingSpot() {
 
     React.useEffect(() => {
       getAllFishingSpot()
+      handlePageChange()
 
     }, [])
 

@@ -69,7 +69,7 @@ const itemData = [
 ]
 
 
-export default function AdvancedImageList() {
+export default function AdvancedImageList(props) {
   const classes = useStyles();
 
   return (
@@ -78,7 +78,12 @@ export default function AdvancedImageList() {
       
         
           <div className={classes.featuredImage}>
-            <img src={'https://res.cloudinary.com/dafoyfdwb/image/upload/v1630405538/10_sczxca.png'}
+            <img src={
+              props.post.image  === undefined
+              ?("https://res.cloudinary.com/dafoyfdwb/image/upload/v1631801954/1-1200x800_nmbvm6.jpg")
+              : ("https://res.cloudinary.com/dafoyfdwb/image/upload/v1631801954/1-1200x800_nmbvm6.jpg")
+            
+            }
             width="100%"
             style={{borderRadius:"30px"}}
             />
@@ -90,11 +95,14 @@ export default function AdvancedImageList() {
 
 
         <ImageList className={classes.imageListCarousel} cols={4} gap={9}>
-        {itemData.map((item) => (
-          <ImageListItem key={item.img}>
-            <img src={item.img} alt={item.title} />
+        {props.post.map((item) => (
+          item.image === undefined
+          ? (<h6>There are no items at the moment.</h6>)
+          : (<ImageListItem key={item.image}>
+            <img src={item.image} alt={item.title} />
            
-          </ImageListItem>
+          </ImageListItem>)
+          
         ))}
       </ImageList>
      
