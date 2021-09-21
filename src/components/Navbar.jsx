@@ -102,8 +102,16 @@ export default function Navbar() {
 
           <Box display="flex">
         <div style={{display:'flex',flexDirection:'row', justifyContent:'flex-end'}}>
-          <Buttons color="secondary" variant="outlined"children="Login"/>
-          <Buttons color="secondary" variant="contained" children="Sign Up"></Buttons>
+        <Link
+            to="/login"
+            style={{ textDecoration: "none", color: "#28362C", display:"flex" }}
+          >
+          <Buttons color="secondary" variant="outlined"children="Login"/> </Link>
+          <Link
+            to="/register"
+            style={{ textDecoration: "none", color: "#28362C", display:"flex" }}
+          >
+          <Buttons color="secondary" variant="contained" children="Sign Up"></Buttons></Link>
         </div>
         </Box>
         
