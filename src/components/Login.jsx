@@ -89,6 +89,7 @@ export default function Login() {
 
     setCookie('auth_token', response.data.token)
     history.push('/')
+    console.log(response.data)
     return
   }
     

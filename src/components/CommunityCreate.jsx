@@ -86,10 +86,10 @@ export default function CommunityCreate(props) {
           headers: cookies,
         }
       )
-      // console.log('1')
       history.push('/community')
+      return notify('Post sucessfully created!')
 
-      return
+      
     } catch (err) {
 
       return notify('Please check your form again.')

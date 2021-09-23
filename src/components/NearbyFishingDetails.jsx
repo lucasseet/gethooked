@@ -1,8 +1,6 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
-import Buttons from "./Button";
 import ImageGallery from "./ImageGallery";
-import Container from "@material-ui/core/Container";
 import { Grid, Typography } from "@material-ui/core";
 import FishRatings from "./FishRatings";
 import FishSpecCard from "./FishSpecCard";
@@ -19,8 +17,6 @@ const useStyles = makeStyles((theme) => ({
   },
 
   container: {
-    // marginLeft:theme.spacing(6),
-    // marginRight:theme.spacing(6)
     margin: "0, auto",
     display: "flex",
     flexDirection: "row",
@@ -36,7 +32,7 @@ const useStyles = makeStyles((theme) => ({
 export default function NearbyFishingDetails(props) {
   const classes = useStyles();
   const { state } = useLocation();
-  console.log("state", state)
+  console.log("state", state);
 
   // use useState hooks
   const [cookies] = useCookies(["auth_token"]);
@@ -50,63 +46,26 @@ export default function NearbyFishingDetails(props) {
 
   const promiseArray = [URL1, URL2].map(fetchURL);
 
-  // const getAllFishingSpot = async () => {
-  //   const url = 'http://localhost:4000/fishing-spots/' + state
-
-  //   await axios
-  //     .get(`${url}`, {
-  //       headers: cookies,
-  //     })
-  //     .then((response) => {
-  //       const allData = response.data
-  //       console.log(allData)
-  //       setIdFishingSpotData(allData)
-
-  //     })
-  //     .catch((error) => {
-  //       return error
-  //     })
-  // }
-
-  // console.log(idFishingSpotData.image)
-
   React.useEffect(() => {
-    // getAllFishingSpot()
     Promise.all(promiseArray)
       .then((data) => {
-        console.log(data)
-        // console.log(data[0].data); 
+        console.log(data);
         setIdFishingSpotData(data[0].data);
 
-        // console.log(data[1].data);
-        // console.log(data[1].data)
-        // console.log(state)
+        const postList = data[1].data;
 
+        const result = postList.filter(function (post) {
+          return post.id === state;
+        });
 
-      const postList = data[1].data
-       
-
-      const result = postList.filter(function(post) {
-        return post.id === state
-      });
-      // console.log(result[0].posts)
-  
-
-       
-          
-       
-       setAllPost(result[0].posts)
-        
-
+        setAllPost(result[0].posts);
       })
       .catch((err) => {});
   }, [state]);
 
-  // console.log(allPost)
 
   let fishCountArray = idFishingSpotData.fishCount;
 
-  // console.log(fishCountArray);
 
   return (
     <section className={classes.root}>
@@ -160,12 +119,36 @@ export default function NearbyFishingDetails(props) {
 
               {/* Weather */}
               <div style={{ display: "flex", flexWrap: "wrap", width: "100%" }}>
-                <FishSpecCard subtitle={"Weather"} title={"26 Degree"} tagline={"Feels like 26 Degree"}/>
-                <FishSpecCard subtitle={"Wind"} title={"1.5 speed"} tagline={"Wind gust 2/3s"}/>
-                <FishSpecCard subtitle={"Top Bait"} title={"Mud Worms"} tagline={"Live Bait"}/>
-                <FishSpecCard subtitle={"Rain"} title={"2/3hr"} tagline={"Heavy downpour"}/>
-                <FishSpecCard subtitle={"Peak Bite Time"} title={"7-8pm"} tagline={"Try at 9pm"}/>
-                <FishSpecCard subtitle={"Waves"} title={"1700 km/h "} tagline={"Extremely high"}/>
+                <FishSpecCard
+                  subtitle={"Weather"}
+                  title={"26 Degree"}
+                  tagline={"Feels like 26 Degree"}
+                />
+                <FishSpecCard
+                  subtitle={"Wind"}
+                  title={"1.5 speed"}
+                  tagline={"Wind gust 2/3s"}
+                />
+                <FishSpecCard
+                  subtitle={"Top Bait"}
+                  title={"Mud Worms"}
+                  tagline={"Live Bait"}
+                />
+                <FishSpecCard
+                  subtitle={"Rain"}
+                  title={"2/3hr"}
+                  tagline={"Heavy downpour"}
+                />
+                <FishSpecCard
+                  subtitle={"Peak Bite Time"}
+                  title={"7-8pm"}
+                  tagline={"Try at 9pm"}
+                />
+                <FishSpecCard
+                  subtitle={"Waves"}
+                  title={"1700 km/h "}
+                  tagline={"Extremely high"}
+                />
               </div>
             </div>
           </Box>
