@@ -89,7 +89,7 @@ export default function Register() {
     e.preventDefault()
     await fetchData()
     if (fetchedData.status !== 201) {
-      return notify('Please check your form again.')
+      return notify('Password should have 1 upper case, lowcase letter along with a number and special character.')
     }  notify('Registration successful')
 
     history.push(`/login`)
