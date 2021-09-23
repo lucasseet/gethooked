@@ -75,7 +75,7 @@ export default function PostCard(props) {
         title="Paella dish"
       />
       <CardContent>
-      <Box mt={2}mb={2} display="flex">
+      <Box mt={2}mb={2} display="flex" style={{width: 1000}}>
       <Link
             to="/nearby-waters" style={{display:'flex'}}>
       <LocationOnIcon style={{ color: '#F13A5D', marginRight:6}}/>
@@ -87,7 +87,6 @@ export default function PostCard(props) {
         
         }}>
           {props.location}
-          {/* Upper Seletar Road */}
         </Typography>
      
       </Link>
@@ -96,10 +95,6 @@ export default function PostCard(props) {
       <Typography variant="body2" color="textSecondary" component="p">
       {props.description}
         </Typography>
-       <Typography variant="body2" color="textSecondary" component="p">
-          This impressive paella is a perfect party dish and a fun meal to cook together with your
-          guests. Add 1 cup of frozen peas along with the mussels, if you like. 
-        </Typography> 
       </CardContent>
 
     </Card>

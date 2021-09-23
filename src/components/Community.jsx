@@ -105,9 +105,6 @@ export default function Community() {
             species={item.species}
             />)
           }))}
-          {/* <PostCard />
-          <PostCard />
-          <PostCard /> */}
           </Box>
 
         
