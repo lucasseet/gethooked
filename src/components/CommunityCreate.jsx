@@ -86,7 +86,7 @@ export default function CommunityCreate(props) {
           headers: cookies,
         }
       )
-      console.log('1')
+      // console.log('1')
       history.push('/community')
 
       return
@@ -296,7 +296,7 @@ export default function CommunityCreate(props) {
                 variant="contained"
                 children="Write A Post"
                 onClick={()=> {
-                  console.log("creating Post") 
+                  // console.log("creating Post") 
                   createPost()
                 }
                 }

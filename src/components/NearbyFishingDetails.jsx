@@ -36,6 +36,7 @@ const useStyles = makeStyles((theme) => ({
 export default function NearbyFishingDetails(props) {
   const classes = useStyles();
   const { state } = useLocation();
+  console.log("state", state)
 
   // use useState hooks
   const [cookies] = useCookies(["auth_token"]);
@@ -73,12 +74,13 @@ export default function NearbyFishingDetails(props) {
     // getAllFishingSpot()
     Promise.all(promiseArray)
       .then((data) => {
+        console.log(data)
         // console.log(data[0].data); 
         setIdFishingSpotData(data[0].data);
 
         // console.log(data[1].data);
-        console.log(data[1].data)
-        console.log(state)
+        // console.log(data[1].data)
+        // console.log(state)
 
 
       const postList = data[1].data
@@ -87,7 +89,7 @@ export default function NearbyFishingDetails(props) {
       const result = postList.filter(function(post) {
         return post.id === state
       });
-      console.log(result[0].posts)
+      // console.log(result[0].posts)
   
 
        
@@ -98,13 +100,13 @@ export default function NearbyFishingDetails(props) {
 
       })
       .catch((err) => {});
-  }, []);
+  }, [state]);
 
-  console.log(allPost)
+  // console.log(allPost)
 
   let fishCountArray = idFishingSpotData.fishCount;
 
-  console.log(fishCountArray);
+  // console.log(fishCountArray);
 
   return (
     <section className={classes.root}>

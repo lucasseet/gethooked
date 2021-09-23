@@ -42,7 +42,7 @@ const itemData = [
 
 
 export default function FishRatings(props) {
-    console.log(props.fishCountArray)
+    // console.log(props.fishCountArray)
 
 
     return (
@@ -61,7 +61,7 @@ export default function FishRatings(props) {
                         { props.fishCountArray === undefined
                         ? (<h6>There are no items at the moment.</h6>)
                         : (props.fishCountArray.slice(0,3).map((item, pos) => {
-                            return(<FishCard fish={item.species}/>)
+                            return(<FishCard key={pos} fish={item.species}/>)
                         }))}
                     </div>
 

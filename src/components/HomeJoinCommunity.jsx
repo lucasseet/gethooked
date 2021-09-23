@@ -1,7 +1,7 @@
 import React from 'react';
 import { makeStyles } from "@material-ui/core/styles";
 import Buttons from './Button';
-
+import { Link } from 'react-router-dom';
 import Container from '@material-ui/core/Container';
 import { Grid, Typography } from '@material-ui/core';
 
@@ -51,8 +51,17 @@ export default function HomeJoinCommunity() {
                 </Typography>
                 
                 <div style={{display:'flex', justifyContent:'flex-start'}}>
-                <Buttons color="secondary" variant="contained"children="Join The Community"/>
-                <Buttons color="secondary" variant="outlined" children="What's On Your Mind?"/>
+                <Link
+            to="/community"
+            style={{ textDecoration: "none", color: "#28362C", display:"flex" }}
+          >
+                <Buttons color="secondary" variant="contained"children="Join The Community"/></Link>
+
+                <Link
+            to="/community/create"
+            style={{ textDecoration: "none", color: "#28362C", display:"flex" }}
+          >
+                <Buttons color="secondary" variant="outlined" children="What's On Your Mind?"/></Link>
                 </div>
 
                 </div>

@@ -5,7 +5,8 @@ import React from 'react';
 import HomeFishingSpot from './HomeFishingSpot';
 
 
-export default function Nearby() {
+export default function Nearby(props) {
+  console.log(props)
 
     return (
         <React.Fragment>

@@ -4,6 +4,7 @@ import clsx from 'clsx';
 import Container from '@material-ui/core/Container';
 import { Grid, Typography } from '@material-ui/core';
 import Buttons from './Button';
+import { Link } from 'react-router-dom';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -61,7 +62,11 @@ export default function HomeFeaturedBanner() {
                 Catch more fish with GetHooked - the world’s most popular fishing app. GetHooked provides you with the tools and skills you need to perform better every time you hit the water, so that you can make bigger and better catches.                </Typography>
                 
                 <div style={{display:'flex', justifyContent:'flex-start'}}>
-                <Buttons color="secondary" variant="contained"children="Explore Fishing Spot"/>
+                <Link
+            to="/nearby-waters/8"
+            style={{ textDecoration: "none", color: "#28362C", display:"flex" }}
+          >
+                <Buttons color="secondary" variant="contained"children="Explore Fishing Spot"/></Link>
                 </div>
 
                 </div>

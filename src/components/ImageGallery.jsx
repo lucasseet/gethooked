@@ -71,6 +71,7 @@ const itemData = [
 
 export default function AdvancedImageList(props) {
   const classes = useStyles();
+  // console.log(props.post[0].image)
 
   return (
     <div className={classes.root}>
@@ -79,8 +80,8 @@ export default function AdvancedImageList(props) {
         
           <div className={classes.featuredImage}>
             <img src={
-              props.post.image  === undefined
-              ?("https://res.cloudinary.com/dafoyfdwb/image/upload/v1631801954/1-1200x800_nmbvm6.jpg")
+              Array.isArray(props.post) && props.post[0] && props.post[0].image
+              ?(props.post[0].image)
               : ("https://res.cloudinary.com/dafoyfdwb/image/upload/v1631801954/1-1200x800_nmbvm6.jpg")
             
             }

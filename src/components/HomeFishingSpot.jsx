@@ -88,7 +88,7 @@ export default function HomeFishingSpot() {
 
     //  To handle page change to show array of items
     const handlePageChange = (e, pageNo) => {
-      console.log(pageNo)
+      // console.log(pageNo)
       setPage(pageNo)
     }
 
@@ -100,7 +100,7 @@ export default function HomeFishingSpot() {
 
     React.useEffect(() => {
       if(page)
-      console.log(page)
+      // console.log(page)
       getAllFishingSpotPage()
 
     }, [page])
