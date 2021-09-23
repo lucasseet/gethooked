@@ -7,28 +7,24 @@ import Buttons from "./Button";
 import PostCard from "./PostCard"
 import { Link } from "react-router-dom";
 import axios from 'axios'
-import { useCookies } from 'react-cookie'
+import { useCookies } from "react-cookie";
 
 
 
 const useStyles = makeStyles((theme) => ({
-//   root: {
-//     height: "100vh",
-//   },
 
   container: {
     margin: "0, auto",
     display: "flex",
     flexDirection: "col",
     justifyContent:"center",
-    
+    height: '100%',
     backgroundColor:"#EAF0F2"
   },
 
   textinner: {
     display: "flex",
     flexDirection: "column",
-    // justifyContent
   },
 
   postCard: {
@@ -42,6 +38,7 @@ const useStyles = makeStyles((theme) => ({
 export default function Community() {
   const classes = useStyles();
   const [cookies] = useCookies(['auth_token'])
+  console.log(cookies)
 
 
   // use useState hooks
@@ -77,7 +74,34 @@ export default function Community() {
       
       <Box p={16} pb={6}>
         <Grid item xs={12}className={classes.textinner}>
-        
+          {cookies.auth_token === 'undefined' 
+          ?(
+          <> 
+          <Typography
+            variant="h4"
+            component="h2"
+            style={{ fontWeight: "600", marginBottom: "20px", color:"#28362C", marginTop: "80px", }}
+          >
+            
+            Please login to view the post
+          </Typography>
+          <Link
+              style={{ textDecoration: 'none', height: '100vh'}}
+              to={{
+                pathname: `/login`,
+              }}
+              
+            >
+          <Buttons color="secondary" variant="contained"children="Login"
+          
+          
+          
+          />
+          </Link>
+          </>)
+          
+          :(
+          <>
           <Typography
             variant="h4"
             component="h2"
@@ -103,9 +127,16 @@ export default function Community() {
             location={item.location}
             description={item.description}
             species={item.species}
-            />)
+            />
+            )
           }))}
+
           </Box>
+
+          </>
+          )}
+        
+          
 
         
         </Grid>
